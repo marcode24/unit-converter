@@ -1,5 +1,5 @@
 header {
-  transition: all 0.5s;
+  transition: 0.5s;
   z-index: 20;
   padding: 0.8rem 0;
   position: sticky;
@@ -7,7 +7,6 @@ header {
   height: 4.5rem;
   width: 100%;
   box-shadow: 0 2px 6px rgb(0 0 0 / 10%);
-  background: var(--bg-color-mobile);
 }
 
 header .header-wrapper {

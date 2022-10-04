@@ -1,5 +1,6 @@
 export interface IProperty {
   name: string;
+  image: string;
   units: IUnit[];
 }
 
