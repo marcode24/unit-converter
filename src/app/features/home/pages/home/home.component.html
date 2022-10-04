@@ -4,12 +4,12 @@
   </section>
 
   <section class="cards">
-    <div class="card" *ngFor="let card of cards">
+    <div [routerLink]="['converter', i]" class="card" *ngFor="let prop of props; let i = index">
       <figure>
         <img src="https://res.cloudinary.com/dfeujtobk/image/upload/v1664497598/Unit%20Converter/money-bag_h8jdax.png"
           alt="section">
       </figure>
-      <span class="card-title">Currency</span>
+      <span class="card-title">{{prop.name}}</span>
     </div>
   </section>
 </div>

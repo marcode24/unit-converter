@@ -18,31 +18,8 @@
 
 .mobile {
   max-height: calc(100vh - 80px);
+  height: calc(100vh - 80px);
   overflow-x: auto;
-}
-
-.mobile::-webkit-scrollbar {
-  width: 7px;
-  border-radius: 2.2rem;
-  background-color: var(--bg-color-mobile);
-}
-
-.mobile::-webkit-scrollbar-track {
-  background-color: var(--bg-color-mobile);
-}
-
-.mobile::-webkit-scrollbar-thumb {
-  background-color: var(--bg-color-scroll);
-  border-radius: 1rem;
-}
-
-.mobile::-webkit-scrollbar-thumb:hover {
-  background: var(--bg-color-scroll);
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-.mobile::-webkit-scrollbar-thumb:active {
-  background: var(--bg-color-scroll);
 }
 
 @media (max-width: 480px) {
@@ -56,5 +33,6 @@
   }
   .mobile {
     max-height: 100vh;
+    height: 100vh;
   }
 }

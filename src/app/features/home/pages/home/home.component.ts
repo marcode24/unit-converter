@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { properties } from '@constants/unit.constant';
+import { IProperty } from '@interfaces/unit.interface';
 
 @Component({
   selector: 'app-home',
@@ -7,25 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  cards = [
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-  ]
+  props: IProperty[] = properties;
   constructor() { }
 
   ngOnInit(): void {

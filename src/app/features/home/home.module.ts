@@ -3,14 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
+import { ConverterComponent } from './pages/converter/converter.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    ConverterComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class HomeModule { }
