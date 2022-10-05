@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="mobile-wrapper">
-    <div class="mobile">
-      <app-header></app-header>
+    <app-header [changeColor]="changeColor"></app-header>
+    <div class="mobile" (scroll)="changeColorScroll($event)">
       <router-outlet></router-outlet>
     </div>
   </div>

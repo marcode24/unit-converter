@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./features.component.css']
 })
 export class FeaturesComponent implements OnInit {
+  changeColor: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeColorScroll($event: any): void {
+    this.changeColor = $event.srcElement.scrollTop > 15;
   }
 
 }

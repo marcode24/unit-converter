@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  height: calc(100% - 4.5rem);
+  height: calc(100vh - 155px);
 }
 
 .top {
@@ -61,7 +61,7 @@
   display: flex;
   align-items: center;
   gap: 3px;
-  font-size: 22px;
+  font-size: 20px;
   color: var(--font-color-1);
   cursor: pointer;
   width: 100%;
@@ -73,20 +73,26 @@
   white-space: nowrap;
   flex: 1 1 100%;
   width: 0;
+  transition: 0.4s ease;
 }
 
 .units .unit .selection a {
-  height: 25px;
+  height: 22px;
   width: 25px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: 0.4s ease;
+  color: var(--font-color-2);
+}
+
+.units .unit .selection:hover a {
+  color: var(--font-color-1);
 }
 
 .units .unit .selection a .fa {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .units .unit input {
@@ -97,6 +103,8 @@
   border: none;
   transition: 0.3s ease;
   max-width: 60%;
+  background: transparent;
+  color: var(--font-color-1);
 }
 
 .units .unit input:focus {
@@ -110,7 +118,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  border-top: 1px solid #a5a5a5;
+  border-top: 1px solid var(--font-color-3);
   border-radius: 1rem;
   overflow: hidden;
   opacity: 0;
@@ -146,9 +154,25 @@
   transition: 0.4s;
   padding: 0 5px;
   border-radius: 0.8rem;
+  color: var(--font-color-1);
+  font-size: 18px;
 }
 
 .options-wrapper .cancel {
   padding: 0.5rem 2rem;
   height: 60px;
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    height: calc(100vh - 4.5rem);
+  }
+
+  .options-wrapper ul li {
+    font-size: 16px;
+  }
+
+  .units .unit .selection {
+    font-size: 18px;
+  }
 }

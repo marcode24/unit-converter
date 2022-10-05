@@ -1,20 +1,39 @@
 header {
-  transition: 0.5s;
+  transition: 0.4s ease;
   z-index: 20;
   padding: 0.8rem 0;
-  position: sticky;
+  position: absolute;
   top: 0;
   height: 4.5rem;
   width: 100%;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+}
+
+header.scrolled {
   box-shadow: 0 2px 6px rgb(0 0 0 / 10%);
+  background: var(--bg-color-mobile);
+  border-bottom: 2px solid var(--bg-color-2);
 }
 
 header .header-wrapper {
   height: 100%;
-  padding: 0 1rem;
+  padding: 0 2rem;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--font-color-3);
+}
+
+@media (max-width: 480px) {
+  header .header-wrapper {
+    padding: 0 1.2rem;
+  }
 }
