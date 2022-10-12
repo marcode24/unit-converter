@@ -21,7 +21,7 @@
   max-height: calc(100vh - 80px);
   height: calc(100vh - 80px);
   overflow-x: auto;
-  padding-top: 4.5rem;
+  padding-top: 4rem;
 }
 
 app-header {

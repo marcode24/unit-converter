@@ -24,8 +24,8 @@
   --bg-color-toggle: #1b1b1b;
   --box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  --box-shadow-hover: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  --box-shadow-hover: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   --card-border: none;
 }
 
@@ -52,7 +52,7 @@ input[type="number"] {
 }
 
 .wrapper {
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem 2rem 2rem;
 }
 
 .btn {
@@ -122,6 +122,6 @@ input:disabled {
 
 @media (max-width: 480px) {
   .wrapper {
-    padding: 1rem 1.2rem;
+    padding: 0 2rem 2rem 2rem;
   }
 }

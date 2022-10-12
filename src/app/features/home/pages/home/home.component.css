@@ -1,6 +1,6 @@
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   justify-items: center;
   width: 100%;
   gap: 1rem;
@@ -9,14 +9,15 @@
 .card {
   border-radius: 15px;
   width: 100%;
-  height: 130px;
+  height: 100%;
   transition: 0.4s;
   box-shadow: var(--box-shadow);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 0.4rem;
+  padding: 0.8rem;
+  gap: 10px;
   border: var(--card-border);
 }
 
@@ -40,17 +41,19 @@
   font-size: 18px;
   font-weight: 500;
   color: var(--font-color-1);
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
 }
 
 @media (max-width: 480px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .card {
-    height: 150px;
-  }
   .card .card-title {
     font-size: 16px;
+  }
+
+  .card figure {
+    height: 50px;
   }
 }

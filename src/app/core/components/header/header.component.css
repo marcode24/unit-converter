@@ -4,7 +4,7 @@ header {
   padding: 0.8rem 0;
   position: absolute;
   top: 0;
-  height: 4.5rem;
+  height: 4rem;
   width: 100%;
   background: transparent;
   border-bottom: 2px solid transparent;
@@ -35,5 +35,8 @@ header .header-wrapper {
 @media (max-width: 480px) {
   header .header-wrapper {
     padding: 0 1.2rem;
+  }
+  .logo {
+    font-size: 24px;
   }
 }
