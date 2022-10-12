@@ -5,7 +5,7 @@
     </a>
     <span class="title">{{prop.name}}</span>
   </section>
-  <section class="units">
+  <form class="units" [formGroup]="unitForm">
     <div class="unit">
       <div class="selection" (click)="showOptions(true)">
         <span> {{nameFrom}} </span>
@@ -13,8 +13,7 @@
           <i class="fa fa-caret-down"></i>
         </a>
       </div>
-      <input onfocus="this.select()" (keyup)="changeValues($event.target)" [(ngModel)]="firstInputValue" placeholder="0"
-        type="text" class="result">
+      <input formControlName="firstValue" onfocus="this.select()" placeholder="0" type="number" class="result">
     </div>
     <div class="unit">
       <div class="selection" (click)="showOptions(false)">
@@ -23,13 +22,14 @@
           <i class="fa fa-caret-down"></i>
         </a>
       </div>
-      <input disabled [(ngModel)]="secondInputValue" placeholder="0" type="text" class="result">
+      <input formControlName="secondValue" placeholder="0" type="number" class="result">
     </div>
-  </section>
+  </form>
   <div class="options-wrapper" #options>
     <div class="options">
       <ul>
-        <li class="item" (click)="changeOption(i)" *ngFor="let unit of prop.units; let i = index">{{unit.name}}</li>
+        <li class="item" (click)="changeIndexOption(i)" *ngFor="let unit of prop.units; let i = index">{{unit.name}}
+        </li>
       </ul>
     </div>
     <div class="cancel">

@@ -37,7 +37,7 @@ export const properties: IProperty[] = [
       },
       {
         name: 'Acre (acre)',
-        factor: 2
+        factor: 4047
       },
       {
         name: 'Are',
@@ -627,7 +627,7 @@ export const properties: IProperty[] = [
       },
       {
         name: 'Decibar',
-        factor: 10000,
+        factor: 1000,
       },
       {
         name: 'Kgr force/sq.centimeter',
@@ -955,7 +955,7 @@ export const properties: IProperty[] = [
       },
       {
         name: 'Cubic yard',
-        factor: 0.7645549
+        factor: 0.764554858
       },
     ]
   }

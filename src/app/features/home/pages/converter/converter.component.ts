@@ -1,9 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Event } from '@angular/router';
-import { properties } from '@constants/unit.constant';
-import { IConvert, IProperty } from '@interfaces/unit.interface';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import { ConverterService } from '@services/converter.service';
+
+import { properties } from '@constants/unit.constant';
+
+import { IConvert, IProperty } from '@interfaces/unit.interface';
 
 @Component({
   selector: 'app-converter',
@@ -11,75 +14,79 @@ import { ConverterService } from '@services/converter.service';
   styleUrls: ['./converter.component.css']
 })
 export class ConverterComponent implements OnInit {
-
   @ViewChild('options') options!: ElementRef;
   prop!: IProperty;
+  unitForm!: FormGroup
+  convertOptions!: IConvert;
 
-  convert!: IConvert;
   nameFrom!: string;
   nameTo!: string;
 
   firstInputValue: number = 1;
   secondInputValue: number = 1;
 
-  private firstInput: boolean = true;
+  private optionsFirstInput: boolean = true;
+
   constructor(
     private readonly converterService: ConverterService,
     private readonly activatedRoute: ActivatedRoute,
-  ) { }
+    private readonly fb: FormBuilder,
+  ) {
+    this.unitForm = this.fb.group({
+      firstValue: [1, [Validators.required]],
+      secondValue: [{ value: 1, disabled: true }, [Validators.required]],
+    });
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(({ propertyIndex }) => this.loadData(propertyIndex));
+    this.unitForm.get('firstValue')?.valueChanges.subscribe(firstValue => {
+      if(!firstValue) return;
+      this.convertOptions.quantity = firstValue;
+      this.setSecondValue(this.getResult);
+    });
   }
 
-  loadData(propIndex: string) {
+  loadData(propIndex: string): void {
     this.prop = properties[Number(propIndex)];
-    this.convert = {
+    this.convertOptions = {
       propName: this.prop.name,
       indexFrom: 0,
       indexTo:0,
-      quantity: 0
-    }
+      quantity: 1
+    };
     this.nameFrom = this.prop.units[0].name;
     this.nameTo = this.prop.units[0].name;
   }
 
+  private get getResult(): number {
+    return this.converterService.convert(this.convertOptions);
+  }
 
-  showOptions(firstInput: boolean) {
-    this.firstInput = firstInput;
+  private setSecondValue(value: number) {
+    this.unitForm.get('secondValue')?.setValue(value, { emitEvent: false });
+  }
+
+  changeIndexOption(index: number): void {
+    const option = this.optionsFirstInput ? 'indexFrom' : 'indexTo';
+    this.convertOptions[option] = index;
+    this.convertOptions.quantity = this.unitForm.get('firstValue')?.value;
+    if(this.optionsFirstInput) {
+      this.nameFrom = this.prop.units[index].name;
+    } else {
+      this.nameTo = this.prop.units[index].name;
+    }
+    this.setSecondValue(this.getResult);
+    this.hideOptions();
+  }
+
+  showOptions(firstInput: boolean): void {
+    this.optionsFirstInput = firstInput;
     this.options.nativeElement.classList.add('open');
   }
 
-  hideOptions() {
+  hideOptions(): void {
     this.options.nativeElement.classList.remove('open');
-  }
-
-  changeValues(event: any) {
-    this.convert.quantity = Number(event.value);
-    if(this.convert.quantity.toString().length > 20) {
-      return;
-    }
-    this.secondInputValue = this.getResult;
-  }
-
-  private get getResult(): number {
-    return this.converterService.convert(this.convert);
-  }
-
-  changeOption(index: number) {
-    if(!this.firstInput) {
-      this.convert.indexTo = index;
-      this.convert.quantity = this.firstInputValue;
-      this.nameTo = this.prop.units[index].name;
-      this.secondInputValue = this.getResult;
-    } else {
-      this.convert.indexFrom = index;
-      this.convert.quantity = this.secondInputValue;
-      this.nameFrom = this.prop.units[index].name;
-      this.firstInputValue = this.getResult;
-
-    }
-    this.hideOptions();
   }
 
 }
