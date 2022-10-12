@@ -26,6 +26,9 @@
     </div>
   </form>
   <div class="options-wrapper" #options>
+    <div class="title">
+      <span>Select unit</span>
+    </div>
     <div class="options">
       <ul>
         <li class="item" (click)="changeIndexOption(i)" *ngFor="let unit of prop.units; let i = index">{{unit.name}}

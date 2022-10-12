@@ -21,6 +21,7 @@
   --font-color-2: #5a5a5a;
   --font-color-3: #22e4ab;
   --bg-color-scroll: #cacaca;
+  --bg-color-toggle: #1b1b1b;
   --box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   --box-shadow-hover: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
@@ -35,6 +36,19 @@ body.dark {
   --box-shadow: none;
   --box-shadow-hover: none;
   --card-border: 1px solid #191e25;
+  --bg-color-scroll: #4d4d4d;
+  --bg-color-toggle: #c4c4c4;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  appearance: textfield;
 }
 
 .wrapper {
@@ -58,11 +72,12 @@ body.dark {
   padding: 0 1rem;
   font-size: 16px;
   border-radius: 8px;
-  color: #5a5a5a;
+  color: #4d4d4d;
   width: fit-content;
   height: 40px;
   width: 100%;
   transition: 0.3s;
+  color: #ffffff;
 }
 
 input:disabled {

@@ -125,6 +125,7 @@
   transition: 0.2s ease-in-out;
   visibility: hidden;
   box-shadow: 0 -2px 6px rgb(0 0 0 / 10%);
+  background: var(--bg-color-mobile);
 }
 
 .options-wrapper.open {
@@ -135,7 +136,6 @@
 .options-wrapper .options {
   height: auto;
   max-height: 370px;
-  padding: 1.2rem 2rem 0 2rem;
   overflow-y: auto;
 }
 
@@ -144,6 +144,7 @@
   flex-direction: column;
   list-style: none;
   justify-content: center;
+  padding: 0 2rem;
 }
 
 .options-wrapper ul li {
@@ -159,8 +160,29 @@
 }
 
 .options-wrapper .cancel {
-  padding: 0.5rem 2rem;
   height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.options-wrapper .title {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.4rem 0;
+  color: var(--font-color-1);
+}
+
+.options-wrapper .title span {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.options-wrapper ul,
+.options-wrapper .cancel,
+.options-wrapper .title {
+  padding: 0 2rem;
 }
 
 @media (max-width: 480px) {
@@ -168,11 +190,21 @@
     height: calc(100vh - 4.5rem);
   }
 
-  .options-wrapper ul li {
-    font-size: 16px;
+  .options-wrapper {
+    border-radius: 1rem 1rem 0 0;
   }
 
+  .options-wrapper ul li {
+    font-size: 14px;
+    height: 40px;
+  }
+
+  .options-wrapper .options {
+    max-height: 300px;
+  }
+
+  .options-wrapper .title span,
   .units .unit .selection {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
