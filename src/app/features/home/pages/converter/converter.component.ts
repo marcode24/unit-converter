@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ConverterService } from '@services/converter.service';
 
@@ -30,6 +30,7 @@ export class ConverterComponent implements OnInit {
   constructor(
     private readonly converterService: ConverterService,
     private readonly activatedRoute: ActivatedRoute,
+    private readonly router: Router,
     private readonly fb: FormBuilder,
   ) {
     this.unitForm = this.fb.group({
@@ -47,8 +48,9 @@ export class ConverterComponent implements OnInit {
     });
   }
 
-  loadData(propIndex: string): void {
+  loadData(propIndex: string): void | Promise<boolean> {
     this.prop = properties[Number(propIndex)];
+    if(!this.prop) return this.router.navigate(['/']);
     this.convertOptions = {
       propName: this.prop.name,
       indexFrom: 0,
@@ -57,6 +59,7 @@ export class ConverterComponent implements OnInit {
     };
     this.nameFrom = this.prop.units[0].name;
     this.nameTo = this.prop.units[0].name;
+
   }
 
   private get getResult(): number {

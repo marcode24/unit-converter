@@ -5,38 +5,40 @@
     </a>
     <span class="title">{{prop.name}}</span>
   </section>
-  <form class="units" [formGroup]="unitForm">
-    <div class="unit">
-      <div class="selection" (click)="showOptions(true)">
-        <span> {{nameFrom}} </span>
-        <a class="opt">
-          <i class="fa fa-caret-down"></i>
-        </a>
+  <ng-container *ngIf="prop">
+    <form class="units" [formGroup]="unitForm">
+      <div class="unit">
+        <div class="selection" (click)="showOptions(true)">
+          <span> {{nameFrom}} </span>
+          <a class="opt">
+            <i class="fa fa-caret-down"></i>
+          </a>
+        </div>
+        <input formControlName="firstValue" onfocus="this.select()" placeholder="0" type="number" class="result">
       </div>
-      <input formControlName="firstValue" onfocus="this.select()" placeholder="0" type="number" class="result">
-    </div>
-    <div class="unit">
-      <div class="selection" (click)="showOptions(false)">
-        <span> {{nameTo}} </span>
-        <a class="opt">
-          <i class="fa fa-caret-down"></i>
-        </a>
+      <div class="unit">
+        <div class="selection" (click)="showOptions(false)">
+          <span> {{nameTo}} </span>
+          <a class="opt">
+            <i class="fa fa-caret-down"></i>
+          </a>
+        </div>
+        <input formControlName="secondValue" placeholder="0" type="number" class="result">
       </div>
-      <input formControlName="secondValue" placeholder="0" type="number" class="result">
+    </form>
+    <div class="options-wrapper" #options>
+      <div class="title">
+        <span>Select unit</span>
+      </div>
+      <div class="options">
+        <ul>
+          <li class="item" (click)="changeIndexOption(i)" *ngFor="let unit of prop.units; let i = index">{{unit.name}}
+          </li>
+        </ul>
+      </div>
+      <div class="cancel">
+        <button class="btn btn-primary" (click)="hideOptions()">Cancel</button>
+      </div>
     </div>
-  </form>
-  <div class="options-wrapper" #options>
-    <div class="title">
-      <span>Select unit</span>
-    </div>
-    <div class="options">
-      <ul>
-        <li class="item" (click)="changeIndexOption(i)" *ngFor="let unit of prop.units; let i = index">{{unit.name}}
-        </li>
-      </ul>
-    </div>
-    <div class="cancel">
-      <button class="btn btn-primary" (click)="hideOptions()">Cancel</button>
-    </div>
-  </div>
+  </ng-container>
 </div>
