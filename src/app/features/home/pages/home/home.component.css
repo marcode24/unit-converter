@@ -1,3 +1,9 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -46,6 +52,26 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: center;
+}
+
+.made {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.made span {
+  color: var(--font-color-1);
+  font-size: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.made span a,
+.made span a:visited {
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--font-color-3);
 }
 
 @media (max-width: 480px) {
