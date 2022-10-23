@@ -42,9 +42,10 @@ export class ConverterComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(({ propertyIndex }) => this.loadData(propertyIndex));
     this.unitForm.get('firstValue')?.valueChanges.subscribe(firstValue => {
-      if(!firstValue) return;
-      this.convertOptions.quantity = firstValue;
-      this.setSecondValue(this.getResult);
+      if(firstValue) {
+        this.convertOptions.quantity = firstValue;
+        this.setSecondValue(this.getResult);
+      }
     });
   }
 
@@ -59,7 +60,6 @@ export class ConverterComponent implements OnInit {
     };
     this.nameFrom = this.prop.units[0].name;
     this.nameTo = this.prop.units[0].name;
-
   }
 
   private get getResult(): number {
