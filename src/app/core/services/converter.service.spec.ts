@@ -1,7 +1,8 @@
-import { ConverterService } from "./converter.service";
+import { TestBed } from "@angular/core/testing";
 
 import { IConvert } from "@interfaces/unit.interface";
-import { TestBed } from "@angular/core/testing";
+
+import { ConverterService } from "./converter.service";
 
 describe('ConverterService', () => {
 
@@ -26,6 +27,7 @@ describe('ConverterService', () => {
           indexFrom: 0,
           indexTo: 1,
         };
+
         expect(converterService.convert(propsConverter)).toBe(100);
   });
 
@@ -38,6 +40,7 @@ describe('ConverterService', () => {
           indexFrom: 2,
           indexTo: 9,
         };
+
         expect(converterService.convert(propsConverter)).toBe(538195.5208354861);
   });
 

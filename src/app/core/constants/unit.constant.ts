@@ -14,11 +14,11 @@ export const properties: IProperty[] = [
         factor: 0.01,
       },
       {
-        name: 'Foot per hour per second	(ft/h·s)',
+        name: 'Foot per hour per second (ft/h·s)',
         factor: 8.46667E-05,
       },
       {
-        name: 'Foot per minute per second	(ft/min·s)',
+        name: 'Foot per minute per second (ft/min·s)',
         factor: 0.00508,
       },
       {
@@ -50,7 +50,7 @@ export const properties: IProperty[] = [
         factor: 0.5144444
       },
       {
-        name: 'Mile per hour per second	(mi/h·s)',
+        name: 'Mile per hour per second (mi/h·s)',
         factor: 0.44704,
       },
       {
@@ -1291,4 +1291,4 @@ export const properties: IProperty[] = [
       },
     ]
   }
-]
+];

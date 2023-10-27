@@ -2,13 +2,11 @@ import { Injectable } from '@angular/core';
 
 import Storage from '@utils/storage.util';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class SettingService {
   private bodyElement = document.body as HTMLBodyElement;
-  constructor() { }
 
   setTheme(theme: 'dark' | 'light'): void {
     if(theme === 'light') {
