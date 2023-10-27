@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
 import { ToggleThemeComponent } from './toggle-theme/toggle-theme.component';
 
 @NgModule({

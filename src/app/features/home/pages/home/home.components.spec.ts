@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { HomeComponent } from './home.component';
-import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HomeComponent', () => {
   let homeComponent: HomeComponent;
@@ -31,6 +31,7 @@ describe('HomeComponent', () => {
 
   it('should create path image /assest/images/area.png', () => {
     const pathRelative = homeComponent['pathRelative'];
+
     expect(homeComponent.buildPathImage('area.png')).toEqual(`${pathRelative}/area.png`);
   });
 

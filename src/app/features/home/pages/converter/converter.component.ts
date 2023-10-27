@@ -4,9 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { ConverterService } from '@services/converter.service';
 
-import { properties } from '@constants/unit.constant';
-
 import { IConvert, IProperty } from '@interfaces/unit.interface';
+
+import { properties } from '@constants/unit.constant';
 
 @Component({
   selector: 'app-converter',
@@ -16,16 +16,16 @@ import { IConvert, IProperty } from '@interfaces/unit.interface';
 export class ConverterComponent implements OnInit {
   @ViewChild('options') options!: ElementRef;
   prop!: IProperty;
-  unitForm!: FormGroup
+  unitForm!: FormGroup;
   convertOptions!: IConvert;
 
   nameFrom!: string;
   nameTo!: string;
 
-  firstInputValue: number = 1;
-  secondInputValue: number = 1;
+  firstInputValue = 1;
+  secondInputValue = 1;
 
-  private optionsFirstInput: boolean = true;
+  private optionsFirstInput = true;
 
   constructor(
     private readonly converterService: ConverterService,

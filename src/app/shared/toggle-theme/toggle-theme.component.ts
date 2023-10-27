@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { SettingService } from '@services/setting.service';
 
@@ -7,13 +7,10 @@ import { SettingService } from '@services/setting.service';
   templateUrl: './toggle-theme.component.html',
   styleUrls: ['./toggle-theme.component.css']
 })
-export class ToggleThemeComponent implements OnInit {
+export class ToggleThemeComponent {
   constructor(
     private settingService: SettingService,
   ) { }
-
-  ngOnInit(): void {
-  }
 
   changeTheme(event: any): void {
     const checked = event.checked;
