@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { properties } from '@constants/unit.constant';
 import { IProperty } from '@interfaces/unit.interface';
 
@@ -11,7 +12,9 @@ export class HomeComponent implements OnInit {
 
   props: IProperty[] = properties;
   private pathRelative: string = '/assets/images';
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -20,5 +23,7 @@ export class HomeComponent implements OnInit {
     return `${this.pathRelative}/${image}`;
   }
 
-
+  goToConverter(index: number): void {
+    this.router.navigate(['converter', index]);
+  }
 }

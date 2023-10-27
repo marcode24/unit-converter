@@ -9,6 +9,10 @@ describe('SettingService', () => {
     settingService = TestBed.inject(SettingService);
   });
 
+  beforeEach(() => {
+    settingService['bodyElement'].classList.remove('dark');
+    settingService['bodyElement'].classList.remove('light');
+  });
 
   it('should be created', () => {
     expect(settingService).toBeTruthy();
@@ -28,12 +32,11 @@ describe('SettingService', () => {
 
   it('Should return true if body element contains dark theme', () => {
     settingService['bodyElement'].classList.add('dark');
-    settingService.isDarkMode();
     expect(settingService.isDarkMode()).toBe(true);
   });
 
   it('Should return false if body element not contains dark theme', () => {
-    settingService.isDarkMode();
+    settingService['bodyElement'].classList.add('light');
     expect(settingService.isDarkMode()).toBe(false);
   });
 
