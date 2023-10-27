@@ -1,6 +1,6 @@
 <div class="wrapper">
   <section class="cards">
-    <div [routerLink]="['converter', i]" class="card" *ngFor="let prop of props; let i = index">
+    <div (click)="goToConverter(i)" class="card" *ngFor="let prop of props; let i = index">
       <figure>
         <img [src]="buildPathImage(prop.image)" loading="lazy" alt="prop-image">
       </figure>
