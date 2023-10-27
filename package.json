@@ -1,6 +1,24 @@
 {
   "name": "unit-converter",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "This is a unit converter, you can convert from one unit to another, it has different categories, such as length, weight, volume, etc.",
+  "keywords": [
+    "Angular",
+    "unit",
+    "converter",
+    "length",
+    "weight",
+    "volume",
+    "temperature",
+    "area",
+    "speed",
+    "time",
+    "pressure",
+    "energy",
+    "power",
+    "data",
+    "frequency"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
